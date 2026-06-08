@@ -233,9 +233,16 @@ async function submitInterview() {
 
   const payload = getPayload();
 
+  const positionForSave =
+  payload.candidate.position === "Customer Service Representative (CSR)"
+    ? "CSR"
+    : payload.candidate.position === "Technical Support Representative (TSR)"
+    ? "TSR"
+    : payload.candidate.position;
+
   const dataToSend = {
   candidateName: payload.candidate.title,
-  position: payload.candidate.position,
+  position: positionForSave,
   account: payload.candidate.accountProgram,
   interviewDate: payload.candidate.interviewDate,
   trainingStartDate: payload.candidate.trainingStartDate,
