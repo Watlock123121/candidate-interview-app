@@ -244,6 +244,7 @@ async function submitInterview() {
   finalResult: payload.candidate.finalResult,
   recruiterNotes: payload.candidate.recruiterNotes,
   recommendation: payload.candidate.scoreDefinition,
+  referralMade: payload.candidate.referralMade,
   scores: payload.scores
 
 };
