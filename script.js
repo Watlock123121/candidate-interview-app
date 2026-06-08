@@ -243,7 +243,9 @@ async function submitInterview() {
   averageScore: Number(payload.candidate.finalScore),
   finalResult: payload.candidate.finalResult,
   recruiterNotes: payload.candidate.recruiterNotes,
-  recommendation: payload.candidate.scoreDefinition
+  recommendation: payload.candidate.scoreDefinition,
+  scores: payload.scores
+
 };
 
   try {
