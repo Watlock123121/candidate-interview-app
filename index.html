@@ -1,103 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Interview Scorecard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Scorecard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="container">
+  <main class="app-shell">
 
-    <h1>Candidate Interview Scorecard</h1>
+    <header class="hero">
+      <div class="hero-icon">📋</div>
 
-    <div class="card">
+      <div>
+        <h1>Interview Scorecard</h1>
+        <p>KuddleandCo / Gatestone — Shaw Recruitment</p>
+
+        <div class="badges">
+          <span><strong>CSR</strong> Cable Customer Service</span>
+          <span><strong>TSR</strong> Technical Support</span>
+          <span><strong>Shaw</strong> Active Account</span>
+          <span><strong>Gatestone</strong> Partner</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active">New Interview</button>
+      <button class="tab">Candidate Repository</button>
+    </nav>
+
+    <section class="content">
+
+      <section class="card candidate-card">
         <h2>Candidate Information</h2>
 
-        <label>Candidate Name</label>
-        <input type="text" id="candidateName">
+        <div class="form-grid">
+          <div class="field">
+            <label>Candidate Name <span>*</span></label>
+            <input id="candidateName" type="text" placeholder="Full name" />
+          </div>
 
-        <label>Position</label>
-        <input type="text" id="position">
+          <div class="field">
+            <label>Position <span>*</span></label>
+            <select id="position">
+              <option>Customer Service Representative (CSR)</option>
+              <option>Technical Support Representative (TSR)</option>
+            </select>
+          </div>
 
-        <label>Account / Program</label>
-        <input type="text" id="accountProgram">
+          <div class="field">
+            <label>Account / Program</label>
+            <select id="accountProgram">
+              <option>Shaw — Cable Customer Service</option>
+              <option>Shaw — Technical Support</option>
+              <option>Gatestone</option>
+            </select>
+          </div>
 
-        <label>Interview Date</label>
-        <input type="date" id="interviewDate">
+          <div class="field">
+            <label>Interview Date</label>
+            <input id="interviewDate" type="date" />
+          </div>
 
-        <label>Training Start Date</label>
-        <input type="date" id="trainingDate">
+          <div class="field">
+            <label>Training Start Date</label>
+            <input id="trainingStartDate" type="date" />
+          </div>
 
-        <label>Interviewer</label>
-        <input type="text" id="interviewer">
-    </div>
+          <div class="field">
+            <label>Interviewer</label>
+            <input id="interviewer" type="text" value="Jomar Galindo" />
+            <small>Auto-populated from your login</small>
+          </div>
+        </div>
+      </section>
 
-    <div class="card">
-        <h2>Interview Scores</h2>
+      <section class="read-aloud">
+        <h3>📋 READ ALOUD — COMPANY INTRO</h3>
+        <p>
+          "This video call will be recorded for quality assurance. I wanted to advise you of this before we got started. Are you okay to continue?"
+        </p>
+        <p>
+          "Established in 1926, Gatestone has been a trailblazer in providing exceptional outsourced Customer Contact Center and BPO services. We are the only BPO recognized by Forbes in Canada's top employers for 2024."
+        </p>
+      </section>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Question</th>
-                    <th>Score (1-5)</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody id="scoreTable">
-                <tr>
-                    <td>Communication</td>
-                    <td>Communication Skills</td>
-                    <td><input type="number" min="1" max="5"></td>
-                    <td><input type="text"></td>
-                </tr>
+      <section class="card">
+        <h2>Pre-Qualifying Checklist</h2>
 
-                <tr>
-                    <td>Technical</td>
-                    <td>Technical Knowledge</td>
-                    <td><input type="number" min="1" max="5"></td>
-                    <td><input type="text"></td>
-                </tr>
+        <div class="checklist">
+          <label><input type="checkbox" /> Interviewed or worked at Gatestone/NCO before?</label>
+          <label><input type="checkbox" /> Can submit onboarding documents (Gov ID + NBI) within 1 week?</label>
+          <label><input type="checkbox" /> Available for required shift schedule?</label>
+          <label><input type="checkbox" /> Reason for leaving current position noted?</label>
+          <label><input type="checkbox" /> English language skills assessed?</label>
+          <label><input type="checkbox" /> No travel plans in next 6 months (1–2 days max exception)?</label>
+          <label><input type="checkbox" /> Legally permitted to work 40 hrs/week in Philippines, age 18+?</label>
+          <label><input type="checkbox" /> Educational attainment confirmed?</label>
+        </div>
+      </section>
 
-                <tr>
-                    <td>Culture Fit</td>
-                    <td>Company Fit</td>
-                    <td><input type="number" min="1" max="5"></td>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+      <section class="card">
+        <h2>Interview Questions — CSR</h2>
+        <div class="instruction">
+          Score each question 1–5. Use N/A for questions that do not apply. Questions left at 0 are excluded from the average.
+        </div>
 
-    <div class="card">
-        <h2>Final Assessment</h2>
+        <div id="questionsContainer"></div>
+      </section>
 
-        <label>Final Result</label>
-        <select id="finalResult">
-            <option>Passed</option>
-            <option>Failed</option>
-            <option>For Final Interview</option>
-        </select>
+      <section class="summary-card">
+        <h2>Score Summary</h2>
 
-        <label>Recruiter Notes</label>
-        <textarea id="recruiterNotes"></textarea>
+        <div class="summary-grid">
+          <div>
+            <label>Questions Scored</label>
+            <strong id="questionsScored">0 / 25</strong>
+          </div>
 
-        <label>Referral Made</label>
-        <select id="referralMade">
-            <option>Yes</option>
-            <option>No</option>
-        </select>
+          <div>
+            <label>Marked N/A</label>
+            <strong id="markedNa">0</strong>
+          </div>
 
-        <button onclick="submitInterview()">
-            Submit Interview
-        </button>
-    </div>
+          <div>
+            <label>Average Score</label>
+            <strong id="averageScore">—</strong>
+          </div>
 
-</div>
+          <div>
+            <label>Final Result</label>
+            <strong id="finalResult">—</strong>
+          </div>
 
-<script src="script.js"></script>
+          <div>
+            <label>Recommendation</label>
+            <strong id="recommendation">—</strong>
+          </div>
+        </div>
+      </section>
 
+      <section class="card">
+        <h2>Recruiter Notes & Referral</h2>
+
+        <div class="field">
+          <label>Recruiter Notes</label>
+          <textarea id="recruiterNotes" placeholder="Overall impressions, follow-up actions, onboarding notes..."></textarea>
+        </div>
+
+        <div class="referral-row">
+          <label class="switch">
+            <input id="referralMade" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+          <span>Referral pitch made?</span>
+        </div>
+
+        <button class="submit-btn" onclick="submitInterview()">Submit Interview</button>
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
