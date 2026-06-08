@@ -263,6 +263,7 @@ async function submitInterview() {
     }
 
     alert("Interview submitted successfully!");
+    location.reload();
   } catch (error) {
     console.error(error);
     alert("Submission failed.");
