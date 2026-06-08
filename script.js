@@ -234,17 +234,17 @@ async function submitInterview() {
   const payload = getPayload();
 
   const dataToSend = {
-    candidateName: payload.candidate.title,
-    position: payload.candidate.position,
-    account: payload.candidate.accountProgram,
-    interviewDate: payload.candidate.interviewDate,
-    trainingStartDate: payload.candidate.trainingStartDate,
-    interviewer: payload.candidate.interviewer,
-    averageScore: payload.candidate.finalScore,
-    finalResult: payload.candidate.finalResult,
-    recruiterNotes: payload.candidate.recruiterNotes,
-    recommendation: payload.candidate.scoreDefinition
-  };
+  candidateName: payload.candidate.title,
+  position: payload.candidate.position,
+  account: payload.candidate.accountProgram,
+  interviewDate: payload.candidate.interviewDate,
+  trainingStartDate: payload.candidate.trainingStartDate,
+  interviewer: payload.candidate.interviewer,
+  averageScore: Number(payload.candidate.finalScore),
+  finalResult: payload.candidate.finalResult,
+  recruiterNotes: payload.candidate.recruiterNotes,
+  recommendation: payload.candidate.scoreDefinition
+};
 
   try {
     const response = await fetch("https://default4a10795dedc04a878f98324334032c.e2.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/1d957d4fad0e4c1ebf48cedea316b44f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=GwjldOmueD26jDpI4A_16PiFYXl2dXCsb4P60CGlmeg", {
