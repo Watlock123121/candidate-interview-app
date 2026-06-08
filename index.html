@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Interview Scorecard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Candidate Interview Scorecard</h1>
+
+    <div class="card">
+        <h2>Candidate Information</h2>
+
+        <label>Candidate Name</label>
+        <input type="text" id="candidateName">
+
+        <label>Position</label>
+        <input type="text" id="position">
+
+        <label>Account / Program</label>
+        <input type="text" id="accountProgram">
+
+        <label>Interview Date</label>
+        <input type="date" id="interviewDate">
+
+        <label>Training Start Date</label>
+        <input type="date" id="trainingDate">
+
+        <label>Interviewer</label>
+        <input type="text" id="interviewer">
+    </div>
+
+    <div class="card">
+        <h2>Interview Scores</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Question</th>
+                    <th>Score (1-5)</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="scoreTable">
+                <tr>
+                    <td>Communication</td>
+                    <td>Communication Skills</td>
+                    <td><input type="number" min="1" max="5"></td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>Technical</td>
+                    <td>Technical Knowledge</td>
+                    <td><input type="number" min="1" max="5"></td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>Culture Fit</td>
+                    <td>Company Fit</td>
+                    <td><input type="number" min="1" max="5"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Final Assessment</h2>
+
+        <label>Final Result</label>
+        <select id="finalResult">
+            <option>Passed</option>
+            <option>Failed</option>
+            <option>For Final Interview</option>
+        </select>
+
+        <label>Recruiter Notes</label>
+        <textarea id="recruiterNotes"></textarea>
+
+        <label>Referral Made</label>
+        <select id="referralMade">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <button onclick="submitInterview()">
+            Submit Interview
+        </button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
