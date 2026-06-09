@@ -11,8 +11,20 @@ function groupQuestionsByCategory() {
   }, {});
 }
 
+function getInterviewType() {
+  const position = document.getElementById("position").value;
+
+  return position === "Technical Support Representative (TSR)"
+    ? "TSR"
+    : "CSR";
+}
+
 function renderQuestions() {
   const container = document.getElementById("questionsContainer");
+  const title = document.getElementById("questionsTitle");
+
+  title.textContent = `Interview Questions — ${getInterviewType()}`;
+
   const groupedQuestions = groupQuestionsByCategory();
 
   container.innerHTML = "";
@@ -277,4 +289,10 @@ async function submitInterview() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", renderQuestions);
+document.addEventListener("DOMContentLoaded", () => {
+  renderQuestions();
+
+  document.getElementById("position").addEventListener("change", () => {
+    renderQuestions();
+  });
+});
